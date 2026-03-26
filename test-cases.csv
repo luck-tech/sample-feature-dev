@@ -1,0 +1,358 @@
+﻿Test Case ID,Feature,Viewpoint,Title,Objective,Preconditions,Steps,Expected Result,Priority,Source Section IDs,Needs Confirmation,Score,Passed
+10f7446d-52fe-4bc3-9bf3-6945152e4dd1,User Management,User Role Assignment,Assign Admin Role to a New User,Verify that an admin can assign an 'admin' role to a new user during creation.,"管理者権限を持つユーザーでログイン済み
+ユーザー一覧画面が表示されている","1. ユーザー一覧画面で「新規ユーザー作成」ボタンをクリックする
+2. ユーザー作成フォームにメールアドレス 'newadmin@example.com' を入力する
+3. ロール選択ドロップダウンから 'admin' を選択する
+4. 「作成」ボタンをクリックする",ユーザー一覧に 'newadmin@example.com' の行が追加され、ロールが 'admin' と表示される。,high,"b50e9e5e-d80e-4bdb-a8b5-be16cc3de510, 303b55aa-a749-4666-a0cb-5a22f493861a",,,
+54745636-96d1-4011-aa13-4ba137b944a7,User Management,User Role Assignment,Default Role Assignment for New User,Verify that a new user is assigned the 'member' role by default when no role is specified during creation.,"管理者権限を持つユーザーでログイン済み
+ユーザー一覧画面が表示されている","1. ユーザー一覧画面で「新規ユーザー作成」ボタンをクリックする
+2. ユーザー作成フォームにメールアドレス 'newmember@example.com' を入力する
+3. ロール選択ドロップダウンを変更せずにそのままにする
+4. 「作成」ボタンをクリックする",ユーザー一覧に 'newmember@example.com' の行が追加され、ロールが 'member' と表示される。,high,"b50e9e5e-d80e-4bdb-a8b5-be16cc3de510, 303b55aa-a749-4666-a0cb-5a22f493861a",,,
+2c8caa49-5bb0-4975-aebc-e13e3644e004,User Management,User Role Assignment,Change Role of Existing User to Viewer,Verify that an admin can change the role of an existing user to 'viewer'.,"管理者権限を持つユーザーでログイン済み
+ユーザー 'existinguser@example.com' が既に 'member' ロールで存在する","1. ユーザー一覧画面で 'existinguser@example.com' の行を探す
+2. 対応する行の「編集」ボタンをクリックする
+3. ロール選択ドロップダウンから 'viewer' を選択する
+4. 「保存」ボタンをクリックする",ユーザー一覧で 'existinguser@example.com' のロールが 'viewer' に更新されている。,high,"b50e9e5e-d80e-4bdb-a8b5-be16cc3de510, 303b55aa-a749-4666-a0cb-5a22f493861a",,,
+f4b36969-edd5-45cd-b563-cd38df1116db,User Management,Email Uniqueness and Format Validation,Validate Email Uniqueness During User Creation,Ensure that the system enforces unique email addresses during user creation.,"管理者権限を持つユーザーでログイン済み
+既存ユーザーが存在する","1. 管理画面にログインする。
+2. ユーザー管理画面に移動する。
+3. 新規ユーザー作成フォームを開く。
+4. フォームのメールアドレス欄に既存のメールアドレス「existinguser@example.com」を入力する。
+5. その他の必須項目を適切に入力し、ユーザーを作成するボタンをクリックする。",エラーメッセージ「このメールアドレスは既に使用されています」が表示され、ユーザー作成が拒否される。,high,"b50e9e5e-d80e-4bdb-a8b5-be16cc3de510, 33e77c1c-e71c-4393-b022-0180003e5261",,,
+339ca16a-d70a-4cb2-8de9-b12a58d4c03e,User Management,Email Uniqueness and Format Validation,Validate Email Format During User Creation,Ensure that the system validates the email format during user creation.,管理者権限を持つユーザーでログイン済み,"1. 管理画面にログインする。
+2. ユーザー管理画面に移動する。
+3. 新規ユーザー作成フォームを開く。
+4. フォームのメールアドレス欄に不正な形式のメールアドレス「invalid-email-format」を入力する。
+5. その他の必須項目を適切に入力し、ユーザーを作成するボタンをクリックする。",エラーメッセージ「無効なメールアドレス形式です」が表示され、ユーザー作成が拒否される。,high,"b50e9e5e-d80e-4bdb-a8b5-be16cc3de510, 33e77c1c-e71c-4393-b022-0180003e5261",,,
+a23f92c0-dc12-4664-b072-fc9e2bd6f808,User Management,User Creation and Retrieval,Create a New User with Default Role,Verify that a new user can be created with the default role when no role is specified.,管理者権限を持つユーザーでログイン済み,"1. ユーザー管理画面に移動する。
+2. 「新規ユーザー作成」ボタンをクリックする。
+3. メールアドレスフィールドに「newuser@example.com」を入力する。
+4. 「作成」ボタンをクリックする。",新しいユーザーが作成され、デフォルトの役割「member」でユーザー一覧に表示される。,medium,"b50e9e5e-d80e-4bdb-a8b5-be16cc3de510, 2d35bd83-aa2d-471a-886a-4ebcf3a1f52c",,,
+3daad2cc-4ed1-4665-8c03-e79ada753e80,User Management,User Creation and Retrieval,Retrieve Existing User Information,Ensure that existing user information can be retrieved correctly.,"管理者権限を持つユーザーでログイン済み
+ユーザー「testuser@example.com」が存在する","1. ユーザー管理画面に移動する。
+2. ユーザー検索フィールドに「testuser@example.com」を入力する。
+3. 「検索」ボタンをクリックする。",ユーザー「testuser@example.com」の情報が正しく表示される。,medium,"b50e9e5e-d80e-4bdb-a8b5-be16cc3de510, 2d35bd83-aa2d-471a-886a-4ebcf3a1f52c",,,
+34a6cd99-8371-46fd-bbe5-99aeeceaac74,User Management,Role-Based Access Control,Admin Role Access Verification,Verify that users with the admin role have full access to user management functionalities.,Admin role user is logged into the system,"1. Navigate to the user management section from the admin dashboard.
+2. Attempt to create a new user with a unique email and assign any role.
+3. Attempt to edit an existing user's details.
+4. Attempt to delete a user from the list.","The admin user can successfully create, edit, and delete users without any access restrictions.",high,"b50e9e5e-d80e-4bdb-a8b5-be16cc3de510, 303b55aa-a749-4666-a0cb-5a22f493861a",,,
+91fdafe2-c846-4fa8-94ff-7afc7f303b4a,User Management,Role-Based Access Control,Member Role Access Restriction Verification,Verify that users with the member role have limited access to user management functionalities.,Member role user is logged into the system,"1. Navigate to the user management section from the member dashboard.
+2. Attempt to create a new user.
+3. Attempt to edit an existing user's details.
+4. Attempt to delete a user from the list.","The member user is restricted from creating, editing, or deleting users, and appropriate access denied messages are displayed.",high,"b50e9e5e-d80e-4bdb-a8b5-be16cc3de510, 303b55aa-a749-4666-a0cb-5a22f493861a",,,
+4f82f0b9-12b1-453e-89e6-62a7647f4b2e,User Management,Role-Based Access Control,Viewer Role Access Restriction Verification,Verify that users with the viewer role can only view user information and not perform any modifications.,Viewer role user is logged into the system,"1. Navigate to the user management section from the viewer dashboard.
+2. Attempt to view the list of users.
+3. Attempt to create a new user.
+4. Attempt to edit an existing user's details.
+5. Attempt to delete a user from the list.","The viewer user can only view the list of users and is restricted from creating, editing, or deleting users. Access denied messages are displayed for restricted actions.",high,"b50e9e5e-d80e-4bdb-a8b5-be16cc3de510, 303b55aa-a749-4666-a0cb-5a22f493861a",,,
+d1e08b02-440f-4f38-9a40-be25caec6e9a,User Management,Error Handling for User Management,Invalid Email Format Error Handling,Verify the system's response to invalid email format during user creation.,"管理者権限を持つユーザーでログイン済み
+ユーザー管理画面が表示されている","1. ユーザー管理画面で「新規ユーザー作成」ボタンをクリックする
+2. メールアドレス欄に「invalid-email-format」と入力する
+3. 「保存」ボタンをクリックする",エラーメッセージ「メールアドレスの形式が正しくありません」が表示される,medium,"b50e9e5e-d80e-4bdb-a8b5-be16cc3de510, 33e77c1c-e71c-4393-b022-0180003e5261",,,
+cb2265d9-f1ed-4474-b651-bea216749a36,User Management,Error Handling for User Management,Duplicate Email Error Handling,Verify the system's response to duplicate email entry during user creation.,"管理者権限を持つユーザーでログイン済み
+既存ユーザーにメールアドレス「test@example.com」が登録済み","1. ユーザー管理画面で「新規ユーザー作成」ボタンをクリックする
+2. メールアドレス欄に「test@example.com」と入力する
+3. 「保存」ボタンをクリックする",エラーメッセージ「このメールアドレスは既に使用されています」が表示される,medium,"b50e9e5e-d80e-4bdb-a8b5-be16cc3de510, 33e77c1c-e71c-4393-b022-0180003e5261",,,
+c901d6bb-06b7-469c-82fd-c69eaf8a5cc9,User Management,Error Handling for User Management,Role Assignment Failure Handling,Verify the system's response when attempting to assign an invalid role to a user.,"管理者権限を持つユーザーでログイン済み
+ユーザー管理画面が表示されている","1. ユーザー管理画面で「新規ユーザー作成」ボタンをクリックする
+2. ロール欄に「invalid_role」と入力する
+3. 「保存」ボタンをクリックする",エラーメッセージ「無効なロールが指定されました」が表示される,medium,"b50e9e5e-d80e-4bdb-a8b5-be16cc3de510, 33e77c1c-e71c-4393-b022-0180003e5261",無効なロールのエラーメッセージ内容,,
+7a8c2298-3400-4b74-a414-ad901e629602,Task Management,Task Status Transitions,Transition Task Status from 'todo' to 'in_progress',Verify that a task can transition from 'todo' to 'in_progress'.,"User with task management permissions is logged in
+A task with status 'todo' exists","1. Navigate to the task management dashboard.
+2. Locate the task with ID '12345' and status 'todo'.
+3. Click on the task to open its details.
+4. Change the status from 'todo' to 'in_progress'.
+5. Save the changes.",The task status is updated to 'in_progress' and reflected in the task list.,high,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a",,,
+d24d3023-77ec-4a75-8f61-2871c876989f,Task Management,Task Status Transitions,Transition Task Status from 'in_progress' to 'in_review',Verify that a task can transition from 'in_progress' to 'in_review'.,"User with task management permissions is logged in
+A task with status 'in_progress' exists","1. Navigate to the task management dashboard.
+2. Locate the task with ID '67890' and status 'in_progress'.
+3. Click on the task to open its details.
+4. Change the status from 'in_progress' to 'in_review'.
+5. Save the changes.",The task status is updated to 'in_review' and reflected in the task list.,high,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a",,,
+cb0dbd6d-5adf-4420-920d-d201105f775a,Task Management,Task Status Transitions,Transition Task Status from 'in_review' to 'done',Verify that a task can transition from 'in_review' to 'done'.,"User with task management permissions is logged in
+A task with status 'in_review' exists","1. Navigate to the task management dashboard.
+2. Locate the task with ID '54321' and status 'in_review'.
+3. Click on the task to open its details.
+4. Change the status from 'in_review' to 'done'.
+5. Save the changes.",The task status is updated to 'done' and reflected in the task list.,high,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a",,,
+46f43f12-a0c6-484d-a81e-fbe74a7eb47d,Task Management,Task Status Transitions,Transition Task Status from 'done' to 'cancelled',Verify that a task can transition from 'done' to 'cancelled'.,"User with task management permissions is logged in
+A task with status 'done' exists","1. Navigate to the task management dashboard.
+2. Locate the task with ID '98765' and status 'done'.
+3. Click on the task to open its details.
+4. Change the status from 'done' to 'cancelled'.
+5. Save the changes.",The task status is updated to 'cancelled' and reflected in the task list.,high,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a",,,
+f17d22d7-75b5-45ac-a595-39979565f040,Task Management,Task Status Transitions,Transition Task Status from 'todo' to 'cancelled',Verify that a task can transition directly from 'todo' to 'cancelled'.,"User with task management permissions is logged in
+A task with status 'todo' exists","1. Navigate to the task management dashboard.
+2. Locate the task with ID '11223' and status 'todo'.
+3. Click on the task to open its details.
+4. Change the status from 'todo' to 'cancelled'.
+5. Save the changes.",The task status is updated to 'cancelled' and reflected in the task list.,high,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a",,,
+2bd3a700-ba70-414b-83c7-a7f9f1c95160,Task Management,Task Priority Levels,Verify task creation with different priority levels,"Ensure tasks can be created with low, medium, high, and critical priority levels.","User with task creation permissions is logged in
+Task creation page is accessible","1. Navigate to the task creation page.
+2. Enter valid task details including title and description.
+3. Select 'low' as the priority level and save the task.
+4. Repeat steps 2-3 for 'medium', 'high', and 'critical' priority levels.",Tasks are created successfully with the selected priority level visible in the task details.,medium,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a",,,
+9776d30f-9c70-412b-8b9b-e5cbe436a0c2,Task Management,Task Priority Levels,Verify task priority level update,Ensure that the priority level of an existing task can be updated.,"User with task editing permissions is logged in
+At least one task exists with any priority level","1. Navigate to the task list page.
+2. Select an existing task with a 'low' priority level.
+3. Edit the task to change the priority level to 'medium' and save the changes.",The task's priority level is updated to 'medium' and displayed correctly in the task details.,medium,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a",,,
+2c24b0bf-76ee-45d1-ade3-ed55cfa1fbd7,Task Management,Task Priority Levels,Verify task list filtering by priority level,Ensure tasks can be filtered by priority level in the task list view.,"User with task viewing permissions is logged in
+Multiple tasks exist with various priority levels","1. Navigate to the task list page.
+2. Apply a filter to display only tasks with 'high' priority level.
+3. Verify that the task list updates to show only tasks with the 'high' priority level.",Only tasks with the 'high' priority level are displayed in the task list.,medium,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a",,,
+8df923d2-4445-4c18-8ae0-679b893086af,Task Management,Assignee Workload Limit,Assign Task to Assignee with Maximum Workload,Ensure that assigning a task to an assignee who has reached their maximum workload is not allowed.,"管理者権限を持つユーザーでログイン済み
+Assignee 'John Doe' has reached the maximum allowed tasks","1. 管理画面にログインする
+2. タスク管理画面を開く
+3. 「新規タスク作成」ボタンをクリック
+4. タスクタイトルに「New Task for John Doe」を入力
+5. 担当者として「John Doe」を選択
+6. 「保存」ボタンをクリック",エラーメッセージ「John Doe は既に最大タスク数に達しています」が表示され、タスクは作成されない。,high,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a, 32223fbe-0a1d-476e-ba80-0bb8e23ba0d2, 85b4e9af-3dae-40be-8c4f-04c8968ee6de, cf541f96-cb77-474b-872c-35b4ebc139a0, 93ba46bd-d99b-48a0-8c26-85121d5c2703, 7decf5a1-641a-4e47-b94c-c247cb846067, 712191f6-21eb-41fb-bb44-4ef8eb0f9d78, 73d6b1f9-184a-4377-8819-624f25552121",Maximum task limit for an assignee,,
+1761a85a-064b-4ad6-8cc1-2c42d6c4e0c3,Task Management,Assignee Workload Limit,Assign Task to Assignee Within Workload Limit,Verify that a task can be successfully assigned to an assignee who is within their workload limit.,"管理者権限を持つユーザーでログイン済み
+Assignee 'Jane Smith' has fewer than maximum allowed tasks","1. 管理画面にログインする
+2. タスク管理画面を開く
+3. 「新規タスク作成」ボタンをクリック
+4. タスクタイトルに「Task for Jane Smith」を入力
+5. 担当者として「Jane Smith」を選択
+6. 「保存」ボタンをクリック",タスク一覧画面に、新規タスク「Task for Jane Smith」が担当者「Jane Smith」で追加されている。,high,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a, 32223fbe-0a1d-476e-ba80-0bb8e23ba0d2, 85b4e9af-3dae-40be-8c4f-04c8968ee6de, cf541f96-cb77-474b-872c-35b4ebc139a0, 93ba46bd-d99b-48a0-8c26-85121d5c2703, 7decf5a1-641a-4e47-b94c-c247cb846067, 712191f6-21eb-41fb-bb44-4ef8eb0f9d78, 73d6b1f9-184a-4377-8819-624f25552121",Maximum task limit for an assignee,,
+ce2f5f7d-95eb-4dc0-870c-1a62d3c352bd,Task Management,Task History Recording,Verify task history records when task status is changed,Ensure that changing the task status is recorded in the task history.,"A task exists with status 'todo'.
+User is logged in with permissions to update tasks.","1. Navigate to the Task Management page.
+2. Select the task with ID '12345'.
+3. Change the task status from 'todo' to 'in_progress'.
+4. Save the changes.
+5. Navigate to the task history section for the task.",The task history shows an entry indicating the status change from 'todo' to 'in_progress'.,medium,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a, 32223fbe-0a1d-476e-ba80-0bb8e23ba0d2, 85b4e9af-3dae-40be-8c4f-04c8968ee6de, cf541f96-cb77-474b-872c-35b4ebc139a0, 93ba46bd-d99b-48a0-8c26-85121d5c2703, 7decf5a1-641a-4e47-b94c-c247cb846067, 712191f6-21eb-41fb-bb44-4ef8eb0f9d78, 73d6b1f9-184a-4377-8819-624f25552121",,,
+efcef716-a5b6-41bf-88b6-52a91c263c9b,Task Management,Task History Recording,Verify task history records when task priority is updated,Ensure that updating the task priority is recorded in the task history.,"A task exists with priority 'medium'.
+User is logged in with permissions to update tasks.","1. Navigate to the Task Management page.
+2. Select the task with ID '12345'.
+3. Change the task priority from 'medium' to 'high'.
+4. Save the changes.
+5. Navigate to the task history section for the task.",The task history shows an entry indicating the priority change from 'medium' to 'high'.,medium,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a, 32223fbe-0a1d-476e-ba80-0bb8e23ba0d2, 85b4e9af-3dae-40be-8c4f-04c8968ee6de, cf541f96-cb77-474b-872c-35b4ebc139a0, 93ba46bd-d99b-48a0-8c26-85121d5c2703, 7decf5a1-641a-4e47-b94c-c247cb846067, 712191f6-21eb-41fb-bb44-4ef8eb0f9d78, 73d6b1f9-184a-4377-8819-624f25552121",,,
+d211fe1c-4700-4b7d-9ac6-b974b278724a,Task Management,Task History Recording,Verify task history records when task is assigned to a new user,Ensure that assigning the task to a new user is recorded in the task history.,"A task exists with an assignee.
+User is logged in with permissions to update tasks.","1. Navigate to the Task Management page.
+2. Select the task with ID '12345'.
+3. Change the assignee to 'user_b'.
+4. Save the changes.
+5. Navigate to the task history section for the task.",The task history shows an entry indicating the change of assignee to 'user_b'.,medium,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a, 32223fbe-0a1d-476e-ba80-0bb8e23ba0d2, 85b4e9af-3dae-40be-8c4f-04c8968ee6de, cf541f96-cb77-474b-872c-35b4ebc139a0, 93ba46bd-d99b-48a0-8c26-85121d5c2703, 7decf5a1-641a-4e47-b94c-c247cb846067, 712191f6-21eb-41fb-bb44-4ef8eb0f9d78, 73d6b1f9-184a-4377-8819-624f25552121",,,
+21d2c14b-5f1b-447e-85a6-71cd8bd63033,Task Management,Task Deletion Impact,Verify Task Deletion Removes All Associated Data,"Ensure that when a task is deleted, all associated data and references are also removed to maintain data integrity.","管理者権限を持つユーザーでログイン済み
+削除対象のタスクが存在し、そのタスクに関連するコメントやファイルが存在する","1. 管理画面にログインする
+2. タスク一覧画面を開く
+3. 削除対象のタスク（ID: 12345）を選択し、削除ボタンをクリックする
+4. 削除確認ダイアログで「はい」をクリックする
+5. タスク一覧に戻り、削除したタスクが表示されていないことを確認する
+6. 関連するコメントやファイルが削除されていることを確認する",削除したタスク（ID: 12345）および関連するコメントやファイルがすべて削除されていること,high,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a, 32223fbe-0a1d-476e-ba80-0bb8e23ba0d2, 85b4e9af-3dae-40be-8c4f-04c8968ee6de, cf541f96-cb77-474b-872c-35b4ebc139a0, 93ba46bd-d99b-48a0-8c26-85121d5c2703, 7decf5a1-641a-4e47-b94c-c247cb846067, 712191f6-21eb-41fb-bb44-4ef8eb0f9d78, 73d6b1f9-184a-4377-8819-624f25552121",削除時に関連するコメントやファイルが自動的に削除される仕様か,,
+4686bba3-1dfa-4cf1-88e5-b88dcebd4e18,Task Management,Task Creation with Valid and Invalid Data,Task Creation with Valid Data,Verify that a task can be successfully created with valid data inputs.,"User with task creation permissions is logged in
+No existing tasks with the same title","1. Navigate to the Task Management page.
+2. Click on the 'Create New Task' button.
+3. Enter 'Valid Task Title' in the Task Title field.
+4. Enter 'This is a valid task description.' in the Description field.
+5. Select 'todo' from the Status dropdown.
+6. Select 'medium' from the Priority dropdown.
+7. Assign the task to 'Valid User'.
+8. Click on the 'Save' button.",A new task with the title 'Valid Task Title' is displayed in the task list with status 'todo' and priority 'medium'.,high,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a, 32223fbe-0a1d-476e-ba80-0bb8e23ba0d2, 85b4e9af-3dae-40be-8c4f-04c8968ee6de, cf541f96-cb77-474b-872c-35b4ebc139a0, 93ba46bd-d99b-48a0-8c26-85121d5c2703, 7decf5a1-641a-4e47-b94c-c247cb846067, 712191f6-21eb-41fb-bb44-4ef8eb0f9d78, 73d6b1f9-184a-4377-8819-624f25552121",,,
+86c5fa78-f5c2-4a1d-86a9-14173bfdf96a,Task Management,Task Creation with Valid and Invalid Data,Task Creation with Invalid Data - Missing Title,Verify that task creation fails gracefully when the title is missing.,User with task creation permissions is logged in,"1. Navigate to the Task Management page.
+2. Click on the 'Create New Task' button.
+3. Leave the Task Title field empty.
+4. Enter 'This is a description without a title.' in the Description field.
+5. Select 'todo' from the Status dropdown.
+6. Select 'medium' from the Priority dropdown.
+7. Assign the task to 'Valid User'.
+8. Click on the 'Save' button.",An error message 'Task title is required.' is displayed and the task is not created.,high,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a, 32223fbe-0a1d-476e-ba80-0bb8e23ba0d2, 85b4e9af-3dae-40be-8c4f-04c8968ee6de, cf541f96-cb77-474b-872c-35b4ebc139a0, 93ba46bd-d99b-48a0-8c26-85121d5c2703, 7decf5a1-641a-4e47-b94c-c247cb846067, 712191f6-21eb-41fb-bb44-4ef8eb0f9d78, 73d6b1f9-184a-4377-8819-624f25552121",,,
+9f5c4041-0e7b-4ee3-8637-0a913d2ec55e,Task Management,Task Creation with Valid and Invalid Data,Task Creation with Invalid Data - Invalid Priority,Verify that task creation fails gracefully when an invalid priority is selected.,User with task creation permissions is logged in,"1. Navigate to the Task Management page.
+2. Click on the 'Create New Task' button.
+3. Enter 'Task with Invalid Priority' in the Task Title field.
+4. Enter 'This task has an invalid priority.' in the Description field.
+5. Select 'todo' from the Status dropdown.
+6. Attempt to enter 'invalid_priority' in the Priority field.
+7. Assign the task to 'Valid User'.
+8. Click on the 'Save' button.",An error message 'Invalid priority value.' is displayed and the task is not created.,high,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a, 32223fbe-0a1d-476e-ba80-0bb8e23ba0d2, 85b4e9af-3dae-40be-8c4f-04c8968ee6de, cf541f96-cb77-474b-872c-35b4ebc139a0, 93ba46bd-d99b-48a0-8c26-85121d5c2703, 7decf5a1-641a-4e47-b94c-c247cb846067, 712191f6-21eb-41fb-bb44-4ef8eb0f9d78, 73d6b1f9-184a-4377-8819-624f25552121",Confirm the error message for invalid priority values.,,
+e94e6fb4-6274-44b8-80f4-65b21c14c7d1,Task Management,UI Consistency and Usability,Verify UI consistency when creating a new task,Ensure the task creation interface is consistent and user-friendly.,"User with task creation permissions is logged in
+Task management page is accessible","1. Navigate to the task management page.
+2. Click on the 'Create New Task' button.
+3. Enter 'New Task' in the Task Name field.
+4. Select 'Medium' from the Priority dropdown.
+5. Select 'Todo' from the Status dropdown.
+6. Click the 'Save' button.","The new task is displayed in the task list with the correct name, priority, and status, and the UI elements are aligned and readable.",medium,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a, 32223fbe-0a1d-476e-ba80-0bb8e23ba0d2, 85b4e9af-3dae-40be-8c4f-04c8968ee6de, cf541f96-cb77-474b-872c-35b4ebc139a0, 93ba46bd-d99b-48a0-8c26-85121d5c2703, 7decf5a1-641a-4e47-b94c-c247cb846067, 712191f6-21eb-41fb-bb44-4ef8eb0f9d78, 73d6b1f9-184a-4377-8819-624f25552121",,,
+baa61cc7-3fa1-43c6-bc3e-a55f5aed070d,Task Management,UI Consistency and Usability,Check UI consistency when updating task details,Ensure the task update interface maintains UI consistency and usability.,"User with task update permissions is logged in
+At least one task exists in the task management page","1. Navigate to the task management page.
+2. Select an existing task from the list.
+3. Click on the 'Edit' button for the selected task.
+4. Update the Task Name to 'Updated Task'.
+5. Change the Priority to 'High'.
+6. Click the 'Save' button.","The task details are updated in the task list with the new name and priority, and the UI remains consistent and user-friendly.",medium,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a, 32223fbe-0a1d-476e-ba80-0bb8e23ba0d2, 85b4e9af-3dae-40be-8c4f-04c8968ee6de, cf541f96-cb77-474b-872c-35b4ebc139a0, 93ba46bd-d99b-48a0-8c26-85121d5c2703, 7decf5a1-641a-4e47-b94c-c247cb846067, 712191f6-21eb-41fb-bb44-4ef8eb0f9d78, 73d6b1f9-184a-4377-8819-624f25552121",,,
+d6a228a5-450a-42a1-aa87-4d5726c8289f,Task Management,UI Consistency and Usability,Validate UI consistency when deleting a task,Ensure the task deletion process is reflected accurately and the UI remains consistent.,"User with task deletion permissions is logged in
+At least one task exists in the task management page","1. Navigate to the task management page.
+2. Select an existing task from the list.
+3. Click on the 'Delete' button for the selected task.
+4. Confirm the deletion in the confirmation dialog.","The task is removed from the task list, and no UI elements are misaligned or broken post-deletion.",medium,"a6608510-49a2-4acb-bbd8-12888855732a, e7ecf390-30c7-4af0-a714-e220fd06d29a, 32223fbe-0a1d-476e-ba80-0bb8e23ba0d2, 85b4e9af-3dae-40be-8c4f-04c8968ee6de, cf541f96-cb77-474b-872c-35b4ebc139a0, 93ba46bd-d99b-48a0-8c26-85121d5c2703, 7decf5a1-641a-4e47-b94c-c247cb846067, 712191f6-21eb-41fb-bb44-4ef8eb0f9d78, 73d6b1f9-184a-4377-8819-624f25552121",,,
+89d17193-d9a8-4349-8221-518fa6ce3cb0,Task Status Transition,Allowed Status Transitions,Verify allowed status transitions,Ensure that only specific task status transitions are allowed according to predefined rules.,"A task exists with status 'open'
+User with appropriate permissions is logged in","1. Navigate to the task management screen.
+2. Select a task with status 'open'.
+3. Attempt to change the task status to 'completed'.","The system prevents the transition from 'open' to 'completed', displaying an error message indicating the transition is not allowed.",high,"c09247ec-4e80-4326-a13e-c3859cb99b00, cccec633-c6bd-48f8-9069-bcc1181fcd71",Specific error message content for disallowed transitions,,
+2ab94ae5-d715-4f48-8cf3-4058b77d4161,Task Status Transition,Allowed Status Transitions,Verify transition from 'in_progress' to 'in_review',Ensure that transition from 'in_progress' to 'in_review' is allowed only if estimated hours are set.,"A task exists with status 'in_progress'
+User with appropriate permissions is logged in
+Estimated hours are not set for the task","1. Navigate to the task management screen.
+2. Select a task with status 'in_progress'.
+3. Attempt to change the task status to 'in_review'.","The system prevents the transition from 'in_progress' to 'in_review', displaying an error message indicating that estimated hours are required.",high,"c09247ec-4e80-4326-a13e-c3859cb99b00, cccec633-c6bd-48f8-9069-bcc1181fcd71",Specific error message content for missing estimated hours,,
+605bf3fc-a3be-4d09-a926-d79bf2d0b334,Task Status Transition,Transition to In Progress Requires Assignee,Transition to In Progress with Assignee,Verify that a task can be transitioned to 'in_progress' only when an assignee is set.,"A user with task management permissions is logged in
+A task exists with status 'open' and no assignee set","1. Navigate to the task management screen.
+2. Select a task with status 'open' and no assignee set.
+3. Attempt to change the task status to 'in_progress'.",The system prevents the status change and displays an error message indicating that an assignee is required.,high,"c09247ec-4e80-4326-a13e-c3859cb99b00, cccec633-c6bd-48f8-9069-bcc1181fcd71",,,
+0493bcc8-a075-463c-9f58-9b9a6527ffdd,Task Status Transition,Transition to In Progress Requires Assignee,Transition to In Progress with Assignee Set,Ensure a task can be transitioned to 'in_progress' when an assignee is set.,"A user with task management permissions is logged in
+A task exists with status 'open' and an assignee is set","1. Navigate to the task management screen.
+2. Select a task with status 'open' and an assignee set.
+3. Change the task status to 'in_progress'.",The task status successfully changes to 'in_progress'.,high,"c09247ec-4e80-4326-a13e-c3859cb99b00, cccec633-c6bd-48f8-9069-bcc1181fcd71",,,
+958893aa-d2b9-4fab-bac6-2ef084fb564a,Task Status Transition,Transition to In Review Requires Estimated Hours,Transition Task to 'In Review' Without Estimated Hours,Verify that transitioning a task to 'in_review' without setting estimated hours is not allowed.,"A task exists in 'in_progress' status.
+The task does not have estimated hours set.
+User is logged in with permissions to change task status.","1. Navigate to the task management system and log in with valid credentials.
+2. Locate and open the task that is currently in 'in_progress' status.
+3. Attempt to change the task status to 'in_review' without setting estimated hours.","An error message 'Estimated hours must be set before transitioning to in_review' is displayed, and the status change is not applied.",medium,"c09247ec-4e80-4326-a13e-c3859cb99b00, cccec633-c6bd-48f8-9069-bcc1181fcd71",Exact wording of the error message.,,
+e4d8dc3c-17b5-4e58-a96f-997487935c06,Task Status Transition,Transition to In Review Requires Estimated Hours,Successful Transition to 'In Review' With Estimated Hours Set,Ensure that a task can be successfully transitioned to 'in_review' if estimated hours are set.,"A task exists in 'in_progress' status.
+The task has estimated hours set.
+User is logged in with permissions to change task status.","1. Navigate to the task management system and log in with valid credentials.
+2. Locate and open the task that is currently in 'in_progress' status with estimated hours set.
+3. Change the task status to 'in_review'.","The task status is successfully updated to 'in_review', and no error messages are displayed.",medium,"c09247ec-4e80-4326-a13e-c3859cb99b00, cccec633-c6bd-48f8-9069-bcc1181fcd71",,,
+1ed2ddcc-55bf-4306-9f2a-bf6946117480,Task Status Transition,Unspecified Status Transition Rules,Investigate Unspecified Status Transition Rules,"To identify and document any unspecified rules related to task status transitions, particularly those not covered in the provided sections.","User with project manager role is logged in
+A task exists with status 'new'","1. Navigate to the task management dashboard.
+2. Select a task with status 'new'.
+3. Attempt to change the task status to 'completed'.","An error message or restriction is displayed, indicating that the transition from 'new' to 'completed' is not allowed.",high,"c09247ec-4e80-4326-a13e-c3859cb99b00, cccec633-c6bd-48f8-9069-bcc1181fcd71",Clarification on allowed transitions from 'new' status.,,
+d3fc2d84-56d9-49f0-a9c7-80a364e54df6,Task Status Transition,Unspecified Status Transition Rules,Verify Transition Rules from 'In Progress' to 'Completed',To verify if there are any unspecified rules governing the transition from 'in progress' to 'completed'.,"User with project manager role is logged in
+A task exists with status 'in progress'
+The task has an assignee","1. Navigate to the task management dashboard.
+2. Select a task with status 'in progress'.
+3. Attempt to change the task status to 'completed'.",The task status changes to 'completed' without any errors or additional requirements.,high,"c09247ec-4e80-4326-a13e-c3859cb99b00, cccec633-c6bd-48f8-9069-bcc1181fcd71",Confirmation if any additional requirements exist for transitioning from 'in progress' to 'completed'.,,
+dc4d9251-6cdb-4f4a-b7a0-f424fca6dad1,Task Status Transition,Unspecified Status Transition Rules,Check Transition from 'In Review' to 'Closed',To determine if there are any hidden rules for transitioning from 'in review' to 'closed'.,"User with project manager role is logged in
+A task exists with status 'in review'
+The task has estimated hours set","1. Navigate to the task management dashboard.
+2. Select a task with status 'in review'.
+3. Attempt to change the task status to 'closed'.",The task status changes to 'closed' without any errors or additional requirements.,high,"c09247ec-4e80-4326-a13e-c3859cb99b00, cccec633-c6bd-48f8-9069-bcc1181fcd71",Clarification on any additional rules for transitioning from 'in review' to 'closed'.,,
+428aa44e-59c6-416f-8aa2-c00d6833f74d,Workload Balancing,Task Assignment Limit Enforcement,Verify Task Assignment Limit Enforcement,Ensure that users cannot be assigned more tasks than their defined max_tasks limit.,"User with a defined max_tasks limit of 5 exists
+User is logged into the system
+User currently has 5 tasks assigned","1. Navigate to the task assignment page for the user.
+2. Attempt to assign an additional task to the user.
+3. Observe the system's response to the task assignment attempt.","An error message indicating that the task limit has been exceeded is displayed, and the task is not assigned.",high,b32cd814-bf33-4b25-b806-1697eabdc7ec,The specific error message text when exceeding the task limit.,,
+4f927006-eaa6-4484-844e-c85c6ad91d39,Workload Balancing,Error Message Display on Exceeding Task Limit,Error Message Display on Exceeding Task Limit,Verify that an error message is displayed when assigning tasks exceeding the user's max_tasks limit.,"User with a max_tasks limit of 5 is logged in
+User currently has 5 tasks assigned","1. Navigate to the Task Assignment page.
+2. Attempt to assign an additional task to the user.
+3. Observe the system's response.",An error message stating 'Task limit exceeded. Cannot assign more tasks.' is displayed on the screen.,medium,b32cd814-bf33-4b25-b806-1697eabdc7ec,,,
+3f305154-f849-495c-97ac-0b6955443f65,Workload Balancing,Boundary Testing for Task Assignment,Boundary Testing for Task Assignment at Max Limit,Verify that a user can be assigned tasks up to their max_tasks limit without errors.,"User with max_tasks limit of 5 is logged into the system
+User currently has 4 tasks assigned","1. Navigate to the task assignment page.
+2. Assign a new task with ID 'new_task_1' to the user.
+3. Submit the task assignment.","The task with ID 'new_task_1' is successfully assigned to the user, making the total assigned tasks equal to the max_tasks limit of 5.",medium,b32cd814-bf33-4b25-b806-1697eabdc7ec,,,
+9b797c57-64e4-4855-84c9-b2b70c35dd02,Workload Balancing,Boundary Testing for Task Assignment,Boundary Testing for Task Assignment Exceeding Max Limit,Ensure that an error message is displayed when attempting to assign a task beyond the user's max_tasks limit.,"User with max_tasks limit of 5 is logged into the system
+User currently has 5 tasks assigned","1. Navigate to the task assignment page.
+2. Attempt to assign a new task with ID 'new_task_2' to the user.
+3. Submit the task assignment.","An error message stating 'Task limit exceeded' is displayed, and the task with ID 'new_task_2' is not assigned to the user.",medium,b32cd814-bf33-4b25-b806-1697eabdc7ec,,,
+fe2cfc66-e9c6-46e1-bf93-99e867555c3b,Priority Escalation,Escalation Rule Verification,Verify task priority escalation based on due date proximity,Ensure that task priority is escalated based on the proximity of the due date.,"User is logged in with task management permissions
+Tasks with various due dates are already created in the system","1. Navigate to the task management dashboard.
+2. Identify tasks with due dates set for today, tomorrow, and next week.
+3. Observe the displayed priority for each task based on its due date.",Tasks with due dates closer to today have a higher displayed priority compared to those due later.,high,b34c640e-0405-41d9-b409-9555d61da0a2,The specific escalation rules based on due date proximity,,
+ec0a6596-171a-4b35-97b6-3784c7870175,Priority Escalation,Response-Only Escalation,Verify Priority Escalation in Response Only,Ensure that task priority escalation is reflected only in the response and not stored in the database.,"A task with a due date set within 2 days exists in the system.
+User is logged in with access to view task details.
+Database access to verify stored task priority.","1. Log into the system with a user account that has access to view tasks.
+2. Navigate to the task list and select a task with a due date within 2 days.
+3. Observe the task priority displayed in the UI.
+4. Access the database and query the task's stored priority value.","The task priority displayed in the UI is escalated, but the priority stored in the database remains unchanged.",medium,b34c640e-0405-41d9-b409-9555d61da0a2,Access to database for verification,,
+1334cf87-4ec3-4d12-b25a-502746eed129,Priority Escalation,Boundary Condition for Due Dates,Boundary Condition Test for Due Date Escalation - On the Day of Due Date,To verify that the system correctly handles task priority escalation on the exact due date.,"A task exists with a due date set to today
+User is logged in with access to view task priorities","1. Log in to the system with valid credentials.
+2. Navigate to the task management page.
+3. Locate the task with today's due date.
+4. Observe the priority level displayed for the task.","The task's priority is escalated in the response, reflecting the proximity of the due date.",medium,b34c640e-0405-41d9-b409-9555d61da0a2,Clarify if the escalation should be visible in the UI or only in response data.,,
+e07a026c-fa14-4044-8239-5add766bce50,Priority Escalation,Boundary Condition for Due Dates,Boundary Condition Test for Due Date Escalation - One Day Before Due Date,To verify that the system correctly handles task priority escalation one day before the due date.,"A task exists with a due date set to tomorrow
+User is logged in with access to view task priorities","1. Log in to the system with valid credentials.
+2. Navigate to the task management page.
+3. Locate the task with tomorrow's due date.
+4. Observe the priority level displayed for the task.","The task's priority is escalated in the response, reflecting the proximity of the due date being one day away.",medium,b34c640e-0405-41d9-b409-9555d61da0a2,Clarify if the escalation should be visible in the UI or only in response data.,,
+0f7578d5-baa9-4080-b250-01ab48bd7a72,Priority Escalation,Boundary Condition for Due Dates,Boundary Condition Test for Due Date Escalation - Day After Due Date,To verify that the system correctly handles task priority escalation the day after the due date has passed.,"A task exists with a due date set to yesterday
+User is logged in with access to view task priorities","1. Log in to the system with valid credentials.
+2. Navigate to the task management page.
+3. Locate the task with yesterday's due date.
+4. Observe the priority level displayed for the task.","The task's priority is escalated in the response, reflecting that the due date has passed.",medium,b34c640e-0405-41d9-b409-9555d61da0a2,Clarify if the escalation should be visible in the UI or only in response data.,,
+51481fa7-2ee5-4ea5-9378-1453da2aad14,Priority Escalation,UI Consistency for Escalated Priority,UI Consistency Check for Escalated Priority,Verify that the UI correctly reflects the escalated priority of a task based on its due date proximity.,"User is logged in with task management permissions
+A task with a due date set to tomorrow exists","1. Navigate to the task management dashboard.
+2. Locate the task with a due date set to tomorrow.
+3. Observe the priority indicator for the task.","The task's priority indicator shows an escalated level (e.g., 'High') due to the proximity of the due date.",low,b34c640e-0405-41d9-b409-9555d61da0a2,"The specific visual representation of the escalated priority (e.g., color, icon)",,
+d8897611-6789-4466-9f46-b94888f38872,Tag Normalization,Tag Normalization - Lowercase Conversion,Verify lowercase conversion of tags on save,Ensure that tags are converted to lowercase when saved to maintain consistent formatting.,"User is logged in with editor permissions
+The tag input field is available on the article editing page","1. Navigate to the article editing page.
+2. Enter the tags 'Test, Example, SAMPLE' into the tag input field.
+3. Save the article.","The tags are displayed as 'test, example, sample' in the tag list after saving.",medium,129ce5ab-5f30-49a1-b58c-820355dd8079,,,
+c4f3e138-e7bb-494d-b9f5-b7ed4fed44bc,Tag Normalization,Tag Normalization - Duplicate Removal,Duplicate Tag Removal on Save,Ensure that duplicate tags are removed during the tag normalization process when saving.,"User is logged into the system with edit permissions.
+At least one editable item with a tag input field is available.","1. Navigate to the item edit page with tag input field.
+2. Enter the following tags in the tag input field: 'Tag1, Tag2, tag1, TAG2, Tag3'.
+3. Click the 'Save' button to save the item.","The item is saved with tags normalized to 'tag1, tag2, tag3', with duplicates removed.",medium,129ce5ab-5f30-49a1-b58c-820355dd8079,Exact behavior when duplicate tags are input is not explicitly detailed in the specification.,,
+6dd7ddab-3c61-4d2f-8828-e0458fa38a49,Tag Normalization,Tag Normalization - Empty Tag Handling,Empty Tag Removal during Normalization,Verify that empty tags are removed during the tag normalization process.,"User is logged in with edit permissions on the tag management page
+At least one taggable item exists in the system","1. Navigate to the tag management page.
+2. Select an item to edit tags.
+3. Enter the following tags: """", ""Tag1"", """", ""Tag2"", """".
+4. Save the changes.","The tags ""Tag1"" and ""Tag2"" are saved, with no empty tags present in the list.",medium,129ce5ab-5f30-49a1-b58c-820355dd8079,,,
+90edb242-0ad0-46a9-a76f-3557fb05e43c,Pagination,Valid Range Adjustment for Page and Limit Parameters,Adjust Page and Limit Parameters to Valid Ranges,Verify that API adjusts page and limit parameters to valid ranges when they exceed allowed limits or are below minimum values.,"API endpoint for pagination is accessible
+User has valid authentication token
+API has a total of 100 records available","1. Send a GET request to the API endpoint with page parameter set to -1 and limit parameter set to 0.
+2. Capture the API response.
+3. Verify the page and limit values in the response are adjusted to the minimum valid values.",The API response contains page set to 1 and limit set to a default minimum value (needs confirmation).,high,893d197c-a6b7-41c2-b914-034729bb7394,What is the default minimum value for limit parameter?,,
+b8a1501e-c641-40a1-9266-3150dd94e996,Pagination,Valid Range Adjustment for Page and Limit Parameters,Adjust Page and Limit Parameters Exceeding Maximum Values,Verify that API adjusts page and limit parameters to valid ranges when they exceed maximum allowed values.,"API endpoint for pagination is accessible
+User has valid authentication token
+API has a total of 100 records available","1. Send a GET request to the API endpoint with page parameter set to 1000 and limit parameter set to 1000.
+2. Capture the API response.
+3. Verify the page and limit values in the response are adjusted to the maximum valid values.",The API response contains page and limit values adjusted to the maximum valid values (needs confirmation).,high,893d197c-a6b7-41c2-b914-034729bb7394,What are the maximum valid values for page and limit parameters?,,
+e3b759c8-1ea0-4ff4-8bc1-9e410258d9a1,Pagination,Response with Empty Array When Total is Less Than Offset,Verify API returns empty array when total items are less than offset,"Ensure the API returns an empty array when the total number of items is less than the offset parameter, maintaining API reliability.","API endpoint is accessible
+Total number of items in the database is less than 50","1. Send a GET request to the API endpoint with the offset parameter set to 50.
+2. Verify the response status code is 200 OK.
+3. Check the response body to confirm it contains an empty array.","The API response contains an empty array, indicating no items are available beyond the offset.",medium,893d197c-a6b7-41c2-b914-034729bb7394,,,
+c3348fbb-cf79-48f4-939a-9fa4ff2fdaed,Pagination,Handling of Boundary Values for Pagination Parameters,Test API Pagination with Zero Page and Limit Values,Verify the API's response when both page and limit parameters are set to zero.,"API endpoint is accessible
+User has valid API credentials","1. Send a GET request to the API endpoint with page parameter set to 0.
+2. Include limit parameter set to 0 in the request.
+3. Observe the API response.",The API returns an empty array in the response body.,medium,893d197c-a6b7-41c2-b914-034729bb7394,Confirm if a specific status code is expected when both parameters are zero.,,
+a9251d65-6b09-4699-90f8-a8f787f5cde9,Pagination,Handling of Boundary Values for Pagination Parameters,Test API Pagination with Maximum Allowed Page and Limit Values,Verify the API's response when both page and limit parameters are set to their maximum allowed values.,"API endpoint is accessible
+User has valid API credentials
+Maximum allowed values for page and limit are defined","1. Send a GET request to the API endpoint with page parameter set to the maximum allowed value.
+2. Include limit parameter set to the maximum allowed value in the request.
+3. Observe the API response.",The API returns a paginated list of items according to the maximum page and limit values.,medium,893d197c-a6b7-41c2-b914-034729bb7394,Confirm the exact maximum values for page and limit parameters.,,
+1ad2cfab-74d3-40f0-bf5f-3bb55db40925,Pagination,Handling of Boundary Values for Pagination Parameters,Test API Pagination with Page Zero and Valid Limit,Verify the API's response when page parameter is set to zero and limit is set to a valid positive value.,"API endpoint is accessible
+User has valid API credentials
+There are items available in the dataset","1. Send a GET request to the API endpoint with page parameter set to 0.
+2. Include limit parameter set to a valid positive value (e.g., 10) in the request.
+3. Observe the API response.",The API returns the first set of items up to the specified limit.,medium,893d197c-a6b7-41c2-b914-034729bb7394,Confirm the behavior when page is zero and limit is valid.,,
+a02667a0-1982-4d01-92db-fb8069da4ce2,Pagination,Error Handling for Invalid Pagination Parameters,Test API Error Handling for Negative Pagination Parameters,Verify that the API returns an appropriate error response when negative pagination parameters are provided.,"API endpoint is accessible
+User has valid API credentials","1. Send a GET request to the API endpoint with 'page' parameter set to -1 and 'limit' parameter set to -10.
+2. Monitor the API response for error messages.
+3. Check the HTTP status code of the response.",The API returns a 400 Bad Request status code with an error message indicating that pagination parameters must be non-negative integers.,medium,893d197c-a6b7-41c2-b914-034729bb7394,,,
+03834900-f098-4ee5-bc46-0706ea543bf9,Pagination,Error Handling for Invalid Pagination Parameters,Test API Error Handling for Non-integer Pagination Parameters,Verify that the API returns an appropriate error response when non-integer pagination parameters are provided.,"API endpoint is accessible
+User has valid API credentials","1. Send a GET request to the API endpoint with 'page' parameter set to 'abc' and 'limit' parameter set to 'xyz'.
+2. Monitor the API response for error messages.
+3. Check the HTTP status code of the response.",The API returns a 400 Bad Request status code with an error message indicating that pagination parameters must be integers.,medium,893d197c-a6b7-41c2-b914-034729bb7394,,,
+0342cc9f-7de2-4d5a-835e-b5d3ccf2a5cf,Pagination,Error Handling for Invalid Pagination Parameters,Test API Error Handling for Missing Pagination Parameters,Verify that the API handles requests with missing pagination parameters gracefully.,"API endpoint is accessible
+User has valid API credentials","1. Send a GET request to the API endpoint without specifying 'page' and 'limit' parameters.
+2. Monitor the API response for default handling or error messages.
+3. Check the HTTP status code of the response.",The API returns a default response or a 400 Bad Request status code with an error message indicating that pagination parameters are required.,medium,893d197c-a6b7-41c2-b914-034729bb7394,Confirm if the API should return a default response or an error when pagination parameters are missing.,,
+f75777aa-21ea-445f-b3e3-79a5933b7d4e,Error Handling,Error Response Format Validation,Validate Error Response Format for VALIDATION_ERROR,Ensure that the API returns the correct JSON format for VALIDATION_ERROR.,"API endpoint is available and accessible
+The API is set to trigger a VALIDATION_ERROR, e.g., by sending invalid input data","1. Send an API request with invalid input data to trigger a VALIDATION_ERROR.
+2. Capture the API response.
+3. Verify that the response is in JSON format and contains the fields 'code' and 'message'.",The API response is a JSON object containing 'code': 'VALIDATION_ERROR' and a non-empty 'message' field.,high,"23409003-395a-4ca9-bacf-5bb66bdf5a0d, 76cc9f9b-40fb-4231-9f8e-3215631b90fc",,,
+58d73bcb-4504-4c82-a79c-d484162adfa3,Error Handling,Error Response Format Validation,Validate Error Response Format for NOT_FOUND,Ensure that the API returns the correct JSON format for NOT_FOUND errors.,"API endpoint is available and accessible
+The API is set to trigger a NOT_FOUND error, e.g., by requesting a non-existent resource","1. Send an API request with a non-existent resource ID to trigger a NOT_FOUND error.
+2. Capture the API response.
+3. Verify that the response is in JSON format and contains the fields 'code' and 'message'.",The API response is a JSON object containing 'code': 'NOT_FOUND' and a non-empty 'message' field.,high,"23409003-395a-4ca9-bacf-5bb66bdf5a0d, 76cc9f9b-40fb-4231-9f8e-3215631b90fc",,,
+277cea78-e9c4-4f6a-95e6-8ecf7c4d46b0,Error Handling,Error Code Verification,Validation Error Code Verification,Verify that the API returns the VALIDATION_ERROR code for invalid input data.,"API endpoint is accessible
+User is authenticated with valid credentials","1. Send a POST request to the API endpoint with invalid input data (e.g., missing required fields).
+2. Capture the API response.
+3. Verify that the response contains the error code 'VALIDATION_ERROR'.",The API response contains the error code 'VALIDATION_ERROR' in the JSON format with a corresponding error message.,high,"23409003-395a-4ca9-bacf-5bb66bdf5a0d, 76cc9f9b-40fb-4231-9f8e-3215631b90fc",,,
+401e7f7e-b3b5-4499-8cba-93e1c97b1318,Error Handling,Error Code Verification,Not Found Error Code Verification,Verify that the API returns the NOT_FOUND error code for non-existent resources.,"API endpoint is accessible
+User is authenticated with valid credentials
+The resource ID used in the request does not exist in the database","1. Send a GET request to the API endpoint with a non-existent resource ID.
+2. Capture the API response.
+3. Verify that the response contains the error code 'NOT_FOUND'.",The API response contains the error code 'NOT_FOUND' in the JSON format with a corresponding error message.,high,"23409003-395a-4ca9-bacf-5bb66bdf5a0d, 76cc9f9b-40fb-4231-9f8e-3215631b90fc",,,
+f556aa5f-e94a-45e1-bbb3-5b765bcd0008,Error Handling,Error Message Clarity,Validate clarity of error message for VALIDATION_ERROR,Ensure the error message for VALIDATION_ERROR is clear and informative.,"APIエンドポイントにアクセス可能な状態であること
+APIトークンを持つユーザーで認証済み
+無効なデータが送信可能な状態であること","1. APIクライアントを使用して、無効な形式のデータを対象のAPIエンドポイントにPOSTリクエストする
+2. レスポンスのステータスコードが400であることを確認する
+3. レスポンスボディからエラーメッセージを抽出する",エラーメッセージが具体的なフィールド名と問題点を明示し、ユーザーが修正方法を理解できる内容であること。,medium,"23409003-395a-4ca9-bacf-5bb66bdf5a0d, 76cc9f9b-40fb-4231-9f8e-3215631b90fc",,,
+7e813bed-5b74-4416-be38-c89433fc1968,Error Handling,Error Message Clarity,Check error message clarity for NOT_FOUND error,Verify that the error message for NOT_FOUND error is clear and provides context.,"APIエンドポイントにアクセス可能な状態であること
+APIトークンを持つユーザーで認証済み
+存在しないリソースIDが特定可能な状態であること","1. APIクライアントを使用して、存在しないリソースIDを指定してGETリクエストを送信する
+2. レスポンスのステータスコードが404であることを確認する
+3. レスポンスボディからエラーメッセージを抽出する",エラーメッセージがリソースが見つからないことを明確に示し、リソースIDが含まれていること。,medium,"23409003-395a-4ca9-bacf-5bb66bdf5a0d, 76cc9f9b-40fb-4231-9f8e-3215631b90fc",,,
+49e44b4b-51b7-484f-9409-b9d5a55d2911,Error Handling,Handling of Unexpected Errors,Verify Standardized Error Response for Unexpected Errors,Ensure that unexpected errors return a standardized error response format with code and message.,"APIサーバーが稼働中であること
+APIエンドポイントが正しく設定されていること","1. APIクライアントを使用して、指定されたエンドポイントに不正なリクエストを送信する
+2. レスポンスを受信する
+3. レスポンスのフォーマットがJSON形式であることを確認する
+4. レスポンスに'code'および'message'フィールドが含まれていることを確認する",レスポンスはJSON形式で、'code'フィールドにエラーコード、'message'フィールドにエラーメッセージが含まれている。,medium,"23409003-395a-4ca9-bacf-5bb66bdf5a0d, 76cc9f9b-40fb-4231-9f8e-3215631b90fc",具体的なエラーコードとメッセージの内容,,

@@ -4,6 +4,7 @@ import { errorHandler } from './middleware/error-handler';
 import userRoutes from './routes/users';
 import taskRoutes from './routes/tasks';
 import statsRoutes from './routes/stats';
+import notificationRoutes from './routes/notifications';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,6 +19,7 @@ initializeSchema();
 app.use('/api/users', userRoutes);
 app.use('/api/tasks', taskRoutes);
 app.use('/api/stats', statsRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 // Health check
 app.get('/health', (_req, res) => {

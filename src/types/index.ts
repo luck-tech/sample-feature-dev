@@ -120,6 +120,94 @@ export interface UserStats {
   workload_percentage: number;
 }
 
+// ============ Notification Types ============
+
+export type NotificationEventType =
+  | 'task_created'
+  | 'task_assigned'
+  | 'task_unassigned'
+  | 'status_changed'
+  | 'task_overdue'
+  | 'priority_changed'
+  | 'comment_added';
+
+export type NotificationPriority = 'low' | 'normal' | 'high' | 'urgent';
+
+export const VALID_NOTIFICATION_EVENT_TYPES: NotificationEventType[] = [
+  'task_created', 'task_assigned', 'task_unassigned',
+  'status_changed', 'task_overdue', 'priority_changed', 'comment_added',
+];
+
+export const VALID_NOTIFICATION_PRIORITIES: NotificationPriority[] = ['low', 'normal', 'high', 'urgent'];
+
+export const NOTIFICATION_PRIORITY_ORDER: Record<NotificationPriority, number> = {
+  low: 0, normal: 1, high: 2, urgent: 3,
+};
+
+export const AGGREGATION_WINDOW_MS = 5 * 60 * 1000; // 5 minutes
+export const MAX_AGGREGATION_COUNT = 10;
+
+export interface NotificationRow {
+  id: string;
+  user_id: string;
+  task_id: string;
+  event_type: NotificationEventType;
+  title: string;
+  message: string;
+  priority: NotificationPriority;
+  is_read: number; // 0 or 1
+  read_at: string | null;
+  aggregation_key: string | null;
+  aggregated_count: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface NotificationResponse {
+  id: string;
+  user_id: string;
+  task_id: string;
+  event_type: NotificationEventType;
+  title: string;
+  message: string;
+  priority: NotificationPriority;
+  is_read: boolean;
+  read_at: string | null;
+  aggregated_count: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface NotificationRuleRow {
+  id: string;
+  user_id: string;
+  event_type: string; // NotificationEventType or '*'
+  enabled: number; // 0 or 1
+  created_at: string;
+}
+
+export interface NotificationRuleResponse {
+  id: string;
+  user_id: string;
+  event_type: string;
+  enabled: boolean;
+  created_at: string;
+}
+
+export interface CreateNotificationRuleRequest {
+  user_id: string;
+  event_type: string;
+  enabled: boolean;
+}
+
+export interface NotificationEvent {
+  type: NotificationEventType;
+  task: TaskRow;
+  actor_id: string; // user who triggered the event
+  old_value?: string | null;
+  new_value?: string | null;
+}
+
 // ============ Error Types ============
 
 export type ErrorCode =
@@ -129,6 +217,7 @@ export type ErrorCode =
   | 'CANNOT_DELETE_ACTIVE_TASK'
   | 'NOT_FOUND'
   | 'CONFLICT'
+  | 'FORBIDDEN'
   | 'INTERNAL_ERROR';
 
 export class AppError extends Error {
